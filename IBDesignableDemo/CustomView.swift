@@ -10,6 +10,33 @@ import UIKit
 
 @IBDesignable class CustomView: UIView {
     
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    // MARK: - UI Setup
+    override func prepareForInterfaceBuilder() {
+        setupView()
+    }
+    
+    func setupView() {
+        self.backgroundColor = color
+        self.layer.cornerRadius = cornerRadius
+        self.layer.shadowColor = shadowColor.cgColor
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = shadowOpacity
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+    }
+    
+    // MARK: - Properties
     @IBInspectable
     var color: UIColor = .white {
         didSet {
@@ -58,32 +85,4 @@ import UIKit
             self.layer.borderColor = borderColor.cgColor
         }
     }
-    
-    // MARK: - Initialization
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-    }
-    
-    // MARK: - UI Setup
-    override func prepareForInterfaceBuilder() {
-        setupView()
-    }
-    
-    func setupView() {
-        self.backgroundColor = color
-        self.layer.cornerRadius = cornerRadius
-        self.layer.shadowColor = shadowColor.cgColor
-        self.layer.shadowRadius = shadowRadius
-        self.layer.shadowOpacity = shadowOpacity
-        self.layer.borderWidth = borderWidth
-        self.layer.borderColor = borderColor.cgColor
-    }
-    
-    
 }
