@@ -18,7 +18,6 @@ import UIKit
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupView()
     }
     
     // MARK: - UI Setup
@@ -38,7 +37,7 @@ import UIKit
     
     // MARK: - Properties
     @IBInspectable
-    var color: UIColor = .white {
+    var color: UIColor = .black {
         didSet {
             self.backgroundColor = color
         }
